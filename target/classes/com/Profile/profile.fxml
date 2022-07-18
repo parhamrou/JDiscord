@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Profile.ProfileController">
+   <left>
+      <Pane prefHeight="600.0" prefWidth="227.0" style="-fx-background-color: #373535;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#8c8c8c" layoutX="59.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER SETTING" textAlignment="CENTER" wrappingWidth="108.546142578125">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #515151;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="49.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Account" textAlignment="CENTER" wrappingWidth="130.94610595703125">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <BorderPane layoutX="53.0" layoutY="88.0" prefHeight="354.0" prefWidth="440.0">
+               <top>
+                  <Pane prefHeight="64.0" prefWidth="440.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <AnchorPane prefHeight="290.0" prefWidth="440.0" style="-fx-background-color: #222222;" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="21.0" layoutY="89.0" prefHeight="185.0" prefWidth="398.0" style="-fx-background-color: #454545;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" text="USERNAME" textFill="#8e8c8c">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label layoutX="14.0" layoutY="70.0" text="EMAIL" textFill="#8e8c8c" />
+                              <Label layoutX="14.0" layoutY="125.0" text="PHONE NUMBER" textFill="#8e8c8c" />
+                              <Button fx:id="usernameEditButton" layoutX="330.0" layoutY="15.0" mnemonicParsing="false" onAction="#changeUsernamePressed" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="emailEditButton" layoutX="330.0" layoutY="70.0" mnemonicParsing="false" onAction="#changeEmailPressed" prefHeight="27.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="phoneEditButton" layoutX="330.0" layoutY="125.0" mnemonicParsing="false" onAction="#changePhoneNumberPressed" prefHeight="28.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="usernameTextField" layoutX="14.0" layoutY="34.0" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #454545; -fx-text-fill: #F4F4F4;" />
+                              <TextField fx:id="emailTextField" layoutX="14.0" layoutY="89.0" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #454545; -fx-text-fill: #F4F4F4;" />
+                              <TextField fx:id="phoneTextField" layoutX="14.0" layoutY="144.0" prefHeight="26.0" prefWidth="170.0" style="-fx-background-color: #454545; -fx-text-fill: #F4F4F4;" />
+                              <Button fx:id="usernameCancelButton" layoutX="331.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancelChangeUsername" prefHeight="15.0" prefWidth="52.0" style="-fx-background-color: #D73B45;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="tryChangeUsernameButton" layoutX="330.0" layoutY="2.0" mnemonicParsing="false" onAction="#tryChangeUsername" prefHeight="27.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="tryChangeEmailButton" layoutX="330.0" layoutY="56.0" mnemonicParsing="false" onAction="#tryChangeEmail" prefHeight="27.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="emailCancelButton" layoutX="331.0" layoutY="90.0" mnemonicParsing="false" onAction="#cancelChangeEmail" prefHeight="15.0" prefWidth="52.0" style="-fx-background-color: #D73B45;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="tryChangePhoneButton" layoutX="330.0" layoutY="111.0" mnemonicParsing="false" onAction="#tryChangePhone" prefHeight="27.0" prefWidth="54.0" style="-fx-background-color: #6C6C6C;" text="Edit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="phoneCancelButton" layoutX="331.0" layoutY="145.0" mnemonicParsing="false" onAction="#cancelChangePhone" prefHeight="15.0" prefWidth="52.0" style="-fx-background-color: #D73B45;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Text fx:id="emailAlertText" fill="#dc4242" layoutX="210.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="usernameAlertText" fill="#dc4242" layoutX="205.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="phoneAlertText" fill="#dc4242" layoutX="210.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <Circle fx:id="avatarCircle" fill="#ced0d1" layoutX="66.0" layoutY="14.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Text fx:id="usernameText" fill="#f4f2f2" layoutX="121.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="164.82029724121094">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="changeAvatarButton" layoutX="296.0" layoutY="7.0" mnemonicParsing="false" onAction="#changeAvatarPressed" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #4B6CEE;" text="Change Avatar" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+            <Label layoutX="57.0" layoutY="455.0" text="Password and Authentication" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Button layoutX="53.0" layoutY="490.0" mnemonicParsing="false" onAction="#changePasswordPressed" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #4B6CEE;" text="Change Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <Label layoutX="53.0" layoutY="525.0" text="Log out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="logOutButton" layoutX="53.0" layoutY="555.0" mnemonicParsing="false" onAction="#logOutButtonPressed" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #D73B45;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="504.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="27.0" prefWidth="38.0" style="-fx-background-color: #6C6C6C;" text="❌" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

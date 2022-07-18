@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.MainPage.ChangeServerNameController">
+   <children>
+      <Label layoutX="23.0" layoutY="14.0" text="CHANGE  NAME" textFill="#bfbfbf">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textField" layoutX="23.0" layoutY="40.0" prefHeight="32.0" prefWidth="281.0" promptText="Enter new name" style="-fx-background-color: #3D3D3D; -fx-text-fill: #b6b6b2;" />
+      <Text fx:id="alertText" layoutX="23.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Button fx:id="changeButton" layoutX="327.0" layoutY="40.0" mnemonicParsing="false" onAction="#changeButtonPressed" prefHeight="32.0" style="-fx-background-color: #4d4dff;" text="Change" textFill="#c1c1c1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

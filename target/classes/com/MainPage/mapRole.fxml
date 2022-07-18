@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.MainPage.MapRoleController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #616161;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" prefHeight="26.0" prefWidth="105.0" text="MAP ROLE" textFill="#b9b9b9">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Text fx:id="guideText" fill="#a9a9a9" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="scrollPane" layoutY="50.0" prefHeight="240.0" prefWidth="400.0" style="-fx-background-color: #616161;" stylesheets="@../PVChat/PVChat.css">
+         <content>
+            <VBox fx:id="vbox" prefHeight="240.0" prefWidth="400.0" style="-fx-background-color: #616161;" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

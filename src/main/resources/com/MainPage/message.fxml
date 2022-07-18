@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #616161;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#c7c7c7" layoutX="89.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The server is deleted successfully!">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="#c7c7c7" layoutX="57.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It's better to refresh your app using 🔃 button :)">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

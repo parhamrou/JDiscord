@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.PVChat.PVController">
+   <children>
+      <VBox prefHeight="700.0" prefWidth="508.0">
+         <children>
+            <AnchorPane prefHeight="72.0" prefWidth="508.0" style="-fx-background-color: #4F4E4E;">
+               <children>
+                  <Circle fx:id="imageCircle" fill="DODGERBLUE" layoutX="46.0" layoutY="36.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Text fx:id="usernameText" fill="#a9a9a9" layoutX="85.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <ScrollPane fx:id="chatScrollPane" prefHeight="528.0" prefWidth="508.0" style="-fx-background-color: #616161;" stylesheets="@PVChat.css">
+               <content>
+                  <VBox fx:id="chatVBox" prefHeight="528.0" prefWidth="508.0" style="-fx-background-color: #616161;" />
+               </content>
+            </ScrollPane>
+            <AnchorPane prefHeight="100.0" prefWidth="508.0" style="-fx-background-color: #616161;">
+               <children>
+                  <TextField fx:id="chatTextField" alignment="TOP_LEFT" layoutX="52.0" layoutY="24.0" prefHeight="55.0" prefWidth="441.0" style="-fx-background-color: #4F4E4E; -fx-text-fill: #c5c5c5;" />
+                  <Button fx:id="sendButton" layoutX="20.0" layoutY="24.0" mnemonicParsing="false" onAction="#sendButtonPressed" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: #4F4E4E;" text="➕" textFill="#ac9d9d">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="sendFileButton" layoutX="20.0" layoutY="55.0" mnemonicParsing="false" onAction="#sendFileButtonPressed" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: #4F4E4E;" text="📎" textFill="#ac9d9d">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
