@@ -21,7 +21,11 @@ You can change your account information and your avatar too.
 - At the end, Press enter in the console environment of "MainServer" to save the data in the file.
 # Images
 ![](images/SignUp.jpg)
+
 ![](images/Profile.jpg)
+
 ![](images/PVChat.jpg)
+
 ![](images/Server.jpg)
+
 ![](images/Friends.jpg)
