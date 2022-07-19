@@ -91,6 +91,7 @@ public class ChannelController implements  Initializable{
         label.setLayoutX(14);
         label.setLayoutY(10);
         label.setText(" " + message.getUser().getUsername() + "\t" + message.getDate());
+        label.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 12));
         if (isMyMessage) {
             textField.setStyle("-fx-background-color:  #66ff66");
             label.setStyle("-fx-background-color:  #66ff66");
@@ -134,7 +135,7 @@ public class ChannelController implements  Initializable{
     }
 
     public void setMessages(ArrayList<Message> messages) {
-        channelNameText.setText(ChannelHandler.getInstance().getChannelName());
+        channelNameText.setText("# " + ChannelHandler.getInstance().getChannelName());
         for (Message message : messages) {
             if (message.getUser().getUsername().equalsIgnoreCase(AppController.getInstance().getUser().getUsername())) {
                 addMessage(message, true);

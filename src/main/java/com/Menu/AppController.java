@@ -368,4 +368,13 @@ public class AppController implements Runnable {
             e.printStackTrace();
         }
     }
+
+    public void exit() {
+        try {
+            outputStream.writeObject(Request.EXIT);
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

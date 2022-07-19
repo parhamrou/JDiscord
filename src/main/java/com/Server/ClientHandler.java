@@ -105,6 +105,7 @@ public class ClientHandler implements Runnable {
                         createPVChat();
                         break;
                     case EXIT:
+                        System.out.println("Exit received!");
                         socket.close();
                         return;
                 }

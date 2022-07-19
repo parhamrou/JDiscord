@@ -37,6 +37,10 @@ public class App extends Application {
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(e -> {
+                AppController.getInstance().cleanChatControllers();
+                AppController.getInstance().exit();
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
