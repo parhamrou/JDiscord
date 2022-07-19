@@ -53,6 +53,9 @@ public class ClientHandler implements Runnable {
                     case CHANGE_PHONE_NUMBER:
                         user.setPhoneNumber((String) oInputStream.readObject());
                         break;
+                    case CHANGE_AVATAR:
+                        user.setAvatar((byte[]) oInputStream.readObject());
+                        break;
                     case SIGN_UP:
                         user = (User) oInputStream.readObject();
                         oOutputStream.writeObject(DataManager.signUp(user));
@@ -91,6 +94,9 @@ public class ClientHandler implements Runnable {
                         break;
                     case PV_LIST:
                         getPVList();
+                        break;
+                    case PV_MAP_LIST:
+                        getPVMapList();
                         break;
                     case ENTER_CHAT:
                         enterPV();
@@ -167,6 +173,23 @@ public class ClientHandler implements Runnable {
 
     private void getPVList() throws IOException, ClassNotFoundException {
         oOutputStream.writeUnshared(user.getPvChats());
+    }
+
+    private void getPVMapList() throws IOException {
+        HashMap<String, byte[]> userMaps = new HashMap<>();
+        for (PVChat pvChat : user.getPvChats(true)) {
+            String username;
+            byte[] image;
+            if (pvChat.getUser1().getUsername().equalsIgnoreCase(user.getUsername())) {
+                username = pvChat.getUser2().getUsername();
+                image = pvChat.getUser2().getAvatar();
+            } else {
+                username = pvChat.getUser1().getUsername();
+                image = pvChat.getUser1().getAvatar();
+            }
+            userMaps.put(username, image);
+        }
+        oOutputStream.writeUnshared(userMaps);
     }
 
     private void getFriendsList() throws IOException {

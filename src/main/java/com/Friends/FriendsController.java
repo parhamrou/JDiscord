@@ -6,8 +6,10 @@ import com.PVChat.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 import javafx.scene.text.*;
 
@@ -109,6 +111,9 @@ public class FriendsController implements Initializable{
         circle.setRadius(18);
         circle.setCenterX(32);
         circle.setCenterY(40);
+        if (friendshipRequest.getSenderUser().getAvatar() != null) {
+            circle.setFill(new ImagePattern(new Image(new ByteArrayInputStream(friendshipRequest.getSenderUser().getAvatar()))));
+        }
         // setting texts
         Text username = new Text(friendshipRequest.getSenderUser().getUsername());
         username.setStyle("-fx-font-size: 14; -fx-text-fill: #c9c4c4; -fx-highlight-text-fill: #c9c4c4");

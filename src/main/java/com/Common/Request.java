@@ -57,4 +57,6 @@ public enum Request implements Serializable {
     CAN_REMOVE_USER,
     CAN_CHANGE_NAME,
     CAN_REMOVE_SERVER,
+    CHANGE_AVATAR,
+    PV_MAP_LIST
 }

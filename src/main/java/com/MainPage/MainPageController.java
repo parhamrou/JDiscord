@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 import javafx.scene.text.*;
 
@@ -86,18 +87,18 @@ public class MainPageController implements Initializable {
         AppController.getInstance().cleanChatControllers();
         anchorPane.getChildren().clear();
         setServers(AppController.getInstance().getServersList());
-        setPVChats(AppController.getInstance().getPVChatsList());
+        setPVChats(AppController.getInstance().getPVChatsList(true));
     }
 
     private void setAddPvList() {
         PVChatsVBox.getChildren().clear();
-        ArrayList<String> friends = AppController.getInstance().getAddPVChatList();
-        for (String friend : friends) {
+        HashMap<String, byte[]> friends = AppController.getInstance().getAddPVChatList();
+        for (Map.Entry<String, byte[]> friend : friends.entrySet()) {
             addPVCell(friend);
         }
     }
 
-    private void addPVCell(String username) {
+    private void addPVCell(Map.Entry<String, byte[]> entry) {
         AnchorPane newAnchor = new AnchorPane();
         newAnchor.setPrefWidth(313);
         newAnchor.setPrefHeight(80);
@@ -106,10 +107,13 @@ public class MainPageController implements Initializable {
         circle.setRadius(18);
         circle.setCenterX(32);
         circle.setCenterY(40);
-        Text text = new Text(username);
+        if (entry.getValue() != null) {
+            circle.setFill(new ImagePattern(new Image(new ByteArrayInputStream(entry.getValue()))));
+        }
+        Text text = new Text(entry.getKey());
         text.setStyle("-fx-font-size: 14; -fx-text-fill: #c9c4c4; -fx-highlight-text-fill: #c9c4c4");
         text.setX(60);
-        text.setY(37);
+        text.setY(41);
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 14));
         Button button = new Button();
         button.setText("➕");
@@ -126,9 +130,9 @@ public class MainPageController implements Initializable {
             // add button function
             // we have to remove, show the list of the PVs, and go inside the new chat
             AppController.getInstance().cleanChatControllers();
-            AppController.getInstance().createPVChat(username);
+            AppController.getInstance().createPVChat(entry.getKey());
             PVChatsVBox.getChildren().clear();
-            setPVChats(AppController.getInstance().getPVChatsList());
+            setPVChats(AppController.getInstance().getPVChatsList(true));
         });
         PVChatsVBox.getChildren().add(newAnchor);
     }
@@ -188,15 +192,18 @@ public class MainPageController implements Initializable {
         });
     }
 
-    public void addPVChat(String PVChat) {
+    public void addPVChat(Map.Entry<String, byte[]> entry) {
         Circle circle = new Circle();
         circle.setRadius(18);
         circle.setCenterX(32);
         circle.setCenterY(40);
-        Text text = new Text(PVChat);
+        if (entry.getValue() != null) {
+            circle.setFill(new ImagePattern(new Image(new ByteArrayInputStream(entry.getValue()))));
+        }
+        Text text = new Text(entry.getKey());
         text.setStyle("-fx-fill:  #8a8a8a");
         text.setX(60);
-        text.setY(37);
+        text.setY(41);
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 14));
         AnchorPane newAnchor = new AnchorPane();
         newAnchor.setPrefWidth(313);
@@ -215,7 +222,7 @@ public class MainPageController implements Initializable {
                 AnchorPane newAnchorPane = fxmlLoader.load(PVController.class.getResource("PVChat.fxml"));
                 anchorPane.getChildren().clear();
                 anchorPane.getChildren().add(newAnchorPane);
-                AppController.getInstance().enterPV(PVChat);
+                AppController.getInstance().enterPV(entry.getKey());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -505,13 +512,13 @@ public class MainPageController implements Initializable {
     }
 
 
-    private void setPVChats(ArrayList<String> PVChats) {
+    private void setPVChats(HashMap<String, byte[]> userMaps) {
         PVChatsVBox.getChildren().clear();
         title.setText("DIRECT CHATS");
         AddPrivateChatButton.setDisable(false);
         AddPrivateChatButton.setVisible(true);
-        for (String PVChat : PVChats) {
-            addPVChat(PVChat);
+        for (Map.Entry<String, byte[]> user : userMaps.entrySet()) {
+            addPVChat(user);
         }
     }
 
@@ -533,7 +540,7 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttonsSetting();
         setServers(AppController.getInstance().getServersList());
-        setPVChats(AppController.getInstance().getPVChatsList());
+        setPVChats(AppController.getInstance().getPVChatsList(true));
         AddPrivateChatButton.setOnMouseEntered(e -> AddPrivateChatButton.setStyle("-fx-background-color:   #999999"));
         AddPrivateChatButton.setOnMouseExited(e -> AddPrivateChatButton.setStyle("-fx-background-color: #616161"));
         serversScrollPane.setFitToWidth(true);

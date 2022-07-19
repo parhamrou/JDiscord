@@ -22,9 +22,12 @@ public class PVHandler extends ChatHandler implements Runnable, Serializable{
             this.username = (String) objectInputStream.readObject();
             if (pvChat.getUser1().getUsername().equalsIgnoreCase(this.username)) {
                 objectOutputStream.writeObject(pvChat.getUser2().getUsername());
+                objectOutputStream.writeUnshared(pvChat.getUser2().getAvatar());
             } else {
                 objectOutputStream.writeObject(pvChat.getUser1().getUsername());
+                objectOutputStream.writeUnshared(pvChat.getUser1().getAvatar());
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

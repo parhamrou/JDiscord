@@ -6,7 +6,9 @@ import javafx.application.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.image.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.*;
 import javafx.stage.*;
@@ -140,6 +142,7 @@ public class PVController implements Initializable {
 
     public void setMessages(ArrayList<Message> messages) {
         usernameText.setText(PVHandler.getInstance().getOtherUserUsername());
+        imageCircle.setFill(new ImagePattern(new Image(new ByteArrayInputStream(PVHandler.getInstance().getOtherUserAvatar()))));
         for (Message message : messages) {
             if (message.getUser().getUsername().equalsIgnoreCase(AppController.getInstance().getUser().getUsername())) {
                 addMessage(message, true);

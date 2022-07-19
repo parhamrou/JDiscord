@@ -8,7 +8,7 @@
     <children>
         <Text fx:id="alertText" fill="#c7c7c7" layoutX="34.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You don't have this permission in this server!" textAlignment="CENTER" wrappingWidth="432.01409912109375">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font></Text>
     </children>
 </AnchorPane>

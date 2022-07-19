@@ -16,6 +16,7 @@ public class User implements Serializable{
     private ArrayList<User> friends;
     private ArrayList<PVChat> pvChats;
     private List<FriendshipRequest> friendshipRequests;
+    private byte[] avatar;
 
     
     // constructor
@@ -50,6 +51,13 @@ public class User implements Serializable{
         this.email = email;
     }
 
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -194,6 +202,10 @@ public class User implements Serializable{
         return names;
     }
 
+    public ArrayList<PVChat> getPvChats(boolean empty) {
+        return pvChats;
+    }
+
     public ArrayList<PVChat> GetPvChats() {
         return pvChats;
     }
@@ -222,14 +234,14 @@ public class User implements Serializable{
         servers.remove(server);
     }
 
-    public ArrayList<String> getAddPVChatList() {
-        ArrayList<String> list = new ArrayList<>();
+    public HashMap<String, byte[]> getAddPVChatList() {
+        HashMap<String, byte[]> userMaps = new HashMap<>();
         for (User friend : friends) {
             if (getPVChat(friend.getUsername()) == null) {
-                list.add(friend.getUsername());
+                userMaps.put(friend.getUsername(), friend.getAvatar());
             }
         }
-        return list;
+        return userMaps;
     }
 
 }

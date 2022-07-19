@@ -23,7 +23,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPane" layoutY="50.0" prefHeight="240.0" prefWidth="400.0" style="-fx-background-color: #616161;" stylesheets="@../PVChat/PVChat.css">
+      <ScrollPane fx:id="scrollPane" layoutY="60.0" prefHeight="240.0" prefWidth="400.0" style="-fx-background-color: #616161;" stylesheets="@../PVChat/PVChat.css">
          <content>
             <VBox fx:id="vbox" prefHeight="240.0" prefWidth="400.0" style="-fx-background-color: #616161;" />
          </content>

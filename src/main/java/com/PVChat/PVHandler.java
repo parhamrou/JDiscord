@@ -12,6 +12,7 @@ public class PVHandler extends ChatHandler {
 
     private static PVHandler instance;
     private String otherUserUsername;
+    private byte[] otherUserAvatar;
 
     public PVHandler(int portNumber, User user) {
         super(portNumber, user, false);
@@ -29,6 +30,7 @@ public class PVHandler extends ChatHandler {
     public void start() throws IOException, ClassNotFoundException, InterruptedException {
         outputStream.writeObject(user.getUsername());
         otherUserUsername = (String) oInputStream.readObject();
+        otherUserAvatar = (byte[]) oInputStream.readObject();
         outputStream.writeObject(Request.LOAD_CHAT);
         boolean isSuccessful = (boolean) oInputStream.readObject();
         if (!isSuccessful) {
@@ -57,6 +59,11 @@ public class PVHandler extends ChatHandler {
     public String getOtherUserUsername() {
         return otherUserUsername;
     }
+
+    public byte[] getOtherUserAvatar() {
+        return otherUserAvatar;
+    }
+
     /**
      * This method is for sending the 'block' request to the server.
      *

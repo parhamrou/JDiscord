@@ -1,20 +1,25 @@
 package com.Profile;
 
 import com.Client.*;
+import com.Common.*;
 import com.MainPage.*;
 import com.Menu.*;
+import com.PVChat.*;
 import com.app.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.*;
+import javafx.scene.paint.*;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.*;
 
 import java.io.*;
 import java.net.*;
+import java.nio.file.*;
 import java.util.*;
 
 public class ProfileController implements Initializable {
@@ -123,7 +128,19 @@ public class ProfileController implements Initializable {
 
     @FXML
     void changeAvatarPressed(ActionEvent event) {
-
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file == null) {
+            return;
+        }
+        try {
+            byte[] content = Files.readAllBytes(file.toPath());
+            AppController.getInstance().changeAvatar(content);
+            Image image = new Image(new ByteArrayInputStream(content));
+            avatarCircle.setFill(new ImagePattern(image));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -216,6 +233,10 @@ public class ProfileController implements Initializable {
         setCancelButtonPair(tryChangeEmailButton, emailCancelButton, true);
         setCancelButtonPair(tryChangePhoneButton, phoneCancelButton, true);
         usernameText.setText(AppController.getInstance().getUser().getUsername());
+        byte[] content = AppController.getInstance().getUser().getAvatar();
+        if (content != null) {
+            avatarCircle.setFill(new ImagePattern(new Image(new ByteArrayInputStream(content))));
+        }
     }
 
     private void setButtonCancel(Button button, boolean status) {

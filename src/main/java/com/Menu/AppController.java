@@ -142,6 +142,7 @@ public class AppController implements Runnable {
         try {
             outputStream.writeObject(Request.CHANGE_EMAIL);
             outputStream.writeObject(email);
+            user.setEmail(email);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,6 +152,7 @@ public class AppController implements Runnable {
         try {
             outputStream.writeObject(Request.CHANGE_PHONE_NUMBER);
             outputStream.writeObject(phoneNumber);
+            user.setPhoneNumber(phoneNumber);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -161,6 +163,7 @@ public class AppController implements Runnable {
         try {
             outputStream.writeObject(Request.CHANGE_PASSWORD);
             outputStream.writeObject(password);
+            user.setPassword(password);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -189,6 +192,20 @@ public class AppController implements Runnable {
         }
         return null;
     }
+
+    public HashMap<String, byte[]> getPVChatsList(boolean empty) {
+        try {
+            outputStream.writeObject(Request.PV_MAP_LIST);
+            return (HashMap<String, byte[]>) objectInputStream.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
     public void enterPV(String PVName) {
         try {
@@ -261,10 +278,10 @@ public class AppController implements Runnable {
         return null;
     }
 
-    public ArrayList<String> getAddPVChatList() {
+    public HashMap<String, byte[]> getAddPVChatList() {
         try {
             outputStream.writeObject(Request.FRIENDS_WITH_NO_CHAT_LIST);
-            return (ArrayList<String>) objectInputStream.readObject();
+            return (HashMap<String, byte[]>) objectInputStream.readObject();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -338,6 +355,16 @@ public class AppController implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeAvatar(byte[] content) {
+        try {
+            outputStream.writeObject(Request.CHANGE_AVATAR);
+            outputStream.writeObject(content);
+            user.setAvatar(content);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
